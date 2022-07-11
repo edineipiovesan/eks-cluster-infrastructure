@@ -1,5 +1,5 @@
 locals {
-  cluster_name    = "argocd-cluster"
+  cluster_name    = "edn-tech-cluster"
   cluster_version = "1.22"
   region          = "us-east-1"
 
