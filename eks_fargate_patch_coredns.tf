@@ -1,6 +1,6 @@
 resource "time_sleep" "wait_30_seconds" {
   depends_on = [
-    module.eks.fargate_profiles
+    aws_eks_fargate_profile.this
   ]
 
   create_duration = "30s"

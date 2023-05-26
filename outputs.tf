@@ -15,12 +15,12 @@ output "cluster_security_group_id" {
 
 output "region" {
   description = "AWS region"
-  value       = var.region
+  value       = var.aws_region
 }
 
 output "cluster_name" {
   description = "Kubernetes Cluster Name"
-  value       = local.cluster_name
+  value       = var.eks_cluster_name
 }
 
 output "oidc_provider_arn" {
