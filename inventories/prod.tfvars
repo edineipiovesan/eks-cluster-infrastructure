@@ -1,6 +1,6 @@
 aws_region = "us-east-1"
 
-eks_cluster_name    = "edn-tech-eks-cluster"
+eks_cluster_name    = "aws-workshop-metrics"
 eks_cluster_version = "1.27"
 eks_cluster_addons = {
   kube-proxy = { resolve_conflicts = "OVERWRITE" }
@@ -14,6 +14,10 @@ eks_fargate_profile = {
   }
   kube-system = {
     namespace = "kube-system"
+    role      = "arn:aws:iam::257254804006:role/AmazonEKSFargatePodExecutionRole"
+  }
+  workshop = {
+    namespace = "workshop"
     role      = "arn:aws:iam::257254804006:role/AmazonEKSFargatePodExecutionRole"
   }
 }
