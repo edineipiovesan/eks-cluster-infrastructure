@@ -1,7 +1,3 @@
-# EKS cluster with fargate compute type
-
-[WIP] Run workloads using fargate compute type orchestrated by EKS (Kubenertes managed by AWS).
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
