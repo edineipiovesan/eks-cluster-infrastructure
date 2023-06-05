@@ -5,11 +5,12 @@ module "eks" {
   cluster_name                    = var.eks_cluster_name
   cluster_version                 = var.eks_cluster_version
   cluster_endpoint_private_access = true
-  cluster_endpoint_public_access  = true
+  cluster_endpoint_public_access  = false
   enable_irsa                     = true
   vpc_id                          = module.vpc.vpc_id
-  subnet_ids                      = flatten([module.vpc.public_subnets, module.vpc.private_subnets])
+  subnet_ids                      = module.vpc.private_subnets
   tags                            = var.default_tags
+  cluster_enabled_log_types       = ["audit", "api", "authenticator", "scheduler", "controllerManager"]
 
   cluster_encryption_config = {
     provider_key_arn = aws_kms_key.eks.arn

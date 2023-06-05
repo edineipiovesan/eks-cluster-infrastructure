@@ -1,3 +1,5 @@
+#tfsec:ignore:aws-ec2-require-vpc-flow-logs-for-all-vpcs
+#tfsec issue: https://github.com/aquasecurity/tfsec/issues/1941
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "~> 4.0"
