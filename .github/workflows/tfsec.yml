@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ $default-branch ]
   schedule:
-    - cron: $cron-weekly
+    - cron: '@weekly'
 
 jobs:
   tfsec:
