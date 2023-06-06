@@ -1,9 +1,12 @@
 name: tflint
-on:
-  push:
-    branches: [ master ]
-  pull_request:
 
+on:
+    push:
+      branches: [ main ]
+    pull_request:
+    schedule:
+      - cron: '0 0 1 * *'
+  
 jobs:
   tflint:
     runs-on: ubuntu-latest
