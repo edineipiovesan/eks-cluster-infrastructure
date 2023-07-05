@@ -7,6 +7,41 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
+##################
+### Networking ###
+##################
+variable "vpc_id" {
+  type        = string
+  description = "VPC used by kubernetes cluster"
+}
+
+variable "private_subnets" {
+  type        = set(string)
+  description = "Private subnets"
+}
+
+variable "public_subnets" {
+  type        = set(string)
+  description = "Public subnets"
+}
+
+variable "bastion_host_sg" {
+  type        = string
+  description = "Bastion host security group allowed"
+  validation {
+    condition     = can(regex("^sg-", var.bastion_host_sg))
+    error_message = "Security group id starts with sg-*"
+  }
+}
+
+variable "bastion_host_role_arn" {
+  type        = string
+  description = "Bastion host IAM role"
+  validation {
+    condition     = can(regex("^arn:aws:iam:", var.bastion_host_role_arn))
+    error_message = "Role arn starts with arn:aws:iam:*"
+  }
+}
 ############
 ### EKS ###
 ############

@@ -4,7 +4,7 @@ resource "aws_eks_fargate_profile" "this" {
   cluster_name           = data.aws_eks_cluster.cluster.name
   fargate_profile_name   = each.key
   pod_execution_role_arn = each.value.role
-  subnet_ids             = module.vpc.private_subnets
+  subnet_ids             = var.private_subnets
 
   selector {
     namespace = each.value.namespace
