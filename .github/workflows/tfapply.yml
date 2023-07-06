@@ -17,7 +17,7 @@ jobs:
     - name: Run CodeBuild
       uses: aws-actions/aws-codebuild-run-build@v1
       with:
-        project-name: Terraform-runner
+        project-name: Terraform-plan
   
   apply:
     runs-on: ubuntu-latest
@@ -34,3 +34,19 @@ jobs:
       uses: aws-actions/aws-codebuild-run-build@v1
       with:
         project-name: Terraform-apply
+
+  destroy:
+    runs-on: ubuntu-latest
+    environment: 'prod'
+    needs: [plan, apply]
+    steps:
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+    - name: Run CodeBuild
+      uses: aws-actions/aws-codebuild-run-build@v1
+      with:
+        project-name: Terraform-destroy
