@@ -2,11 +2,12 @@ name: tfapply
 
 on:
     push:
-      branches: [ prod ]
-  
+      branches: [ main ]
+
 jobs:
   plan:
     runs-on: ubuntu-latest
+    environment: 'prod'
     steps:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
