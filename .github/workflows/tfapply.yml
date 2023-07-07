@@ -38,7 +38,7 @@ jobs:
   destroy:
     runs-on: ubuntu-latest
     environment: 'prod'
-    needs: [plan]
+    needs: [plan, apply]
     steps:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
