@@ -42,6 +42,15 @@ variable "bastion_host_role_arn" {
     error_message = "Role arn starts with arn:aws:iam:*"
   }
 }
+
+variable "pipeline_sg" {
+  type        = string
+  description = "Pipeline security group allowed"
+  validation {
+    condition     = can(regex("^sg-", var.pipeline_sg))
+    error_message = "Security group id starts with sg-*"
+  }
+}
 ############
 ### EKS ###
 ############

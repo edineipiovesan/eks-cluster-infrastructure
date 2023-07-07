@@ -13,6 +13,7 @@ private_subnets = [
 ]
 bastion_host_sg       = "sg-0d650373748600386"
 bastion_host_role_arn = "arn:aws:iam::257254804006:role/BastionRole"
+pipeline_sg           = "sg-05dc2e6ca161f7297"
 
 eks_cluster_name    = "edn-tech-k8s-cluster-1"
 eks_cluster_version = "1.27"

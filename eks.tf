@@ -6,7 +6,7 @@ module "eks" {
   cluster_version                       = var.eks_cluster_version
   cluster_endpoint_private_access       = true
   cluster_endpoint_public_access        = false
-  cluster_additional_security_group_ids = [var.bastion_host_sg]
+  cluster_additional_security_group_ids = [var.bastion_host_sg, var.pipeline_sg]
   enable_irsa                           = true
   vpc_id                                = var.vpc_id
   subnet_ids                            = var.private_subnets
