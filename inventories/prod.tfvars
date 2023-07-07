@@ -1,17 +1,17 @@
 aws_region = "us-east-1"
 
-vpc_id = "vpc-082ea38c5fbd12a91"
+vpc_id = "vpc-013d05c418c10210f"
 public_subnets = [
-  "subnet-06021a2ec84d6ed22",
-  "subnet-01b0e384ea7a7c4de",
-  "subnet-09472af23f8cec280",
+  "subnet-06712f91cdb9367c9",
+  "subnet-061ea6402c42abf42",
+  "subnet-02cd19e60b339c6cd",
 ]
 private_subnets = [
-  "subnet-0a511c5b421f156ba",
-  "subnet-0c1cb12b6822804df",
-  "subnet-07b2bc940982be1ca",
+  "subnet-0f9ec8c04a0a459ac",
+  "subnet-0e9831282b90dada7",
+  "subnet-03f04a6ae392e9a96",
 ]
-bastion_host_sg       = "sg-00fd1d429e22568ba"
+bastion_host_sg       = "sg-0d650373748600386"
 bastion_host_role_arn = "arn:aws:iam::257254804006:role/BastionRole"
 
 eks_cluster_name    = "edn-tech-k8s-cluster-1"
