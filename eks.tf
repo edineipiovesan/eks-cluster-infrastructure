@@ -12,7 +12,7 @@ module "eks" {
   subnet_ids                            = var.private_subnets
   tags                                  = var.default_tags
   cluster_enabled_log_types             = ["audit", "api", "authenticator", "scheduler", "controllerManager"]
-  manage_aws_auth_configmap             = false
+  manage_aws_auth_configmap             = true
   aws_auth_roles                        = [var.bastion_host_role_arn]
 
   cluster_encryption_config = {
