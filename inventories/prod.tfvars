@@ -15,7 +15,7 @@ bastion_host_sg = "sg-0d650373748600386"
 bastion_host_role = {
   rolearn  = "arn:aws:iam::257254804006:role/BastionRole"
   username = "bastion-host"
-  groups   = ["system:master"]
+  groups   = ["system:masters"]
 }
 pipeline_sg = "sg-05dc2e6ca161f7297"
 
