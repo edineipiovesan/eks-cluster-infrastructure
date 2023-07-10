@@ -35,12 +35,12 @@ variable "bastion_host_sg" {
 }
 
 variable "bastion_host_role" {
-  type        = string
+  type = object({
+    rolearn  = string
+    username = string
+    groups   = list(string)
+  })
   description = "Bastion host IAM role"
-  validation {
-    condition     = can(regex("^arn:aws:iam:", var.bastion_host_role))
-    error_message = "Role arn starts with arn:aws:iam:*"
-  }
 }
 
 variable "pipeline_sg" {
