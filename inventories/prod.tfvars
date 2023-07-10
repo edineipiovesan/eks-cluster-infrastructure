@@ -11,9 +11,13 @@ private_subnets = [
   "subnet-0e9831282b90dada7",
   "subnet-03f04a6ae392e9a96",
 ]
-bastion_host_sg       = "sg-0d650373748600386"
-bastion_host_role_arn = "arn:aws:iam::257254804006:role/BastionRole"
-pipeline_sg           = "sg-05dc2e6ca161f7297"
+bastion_host_sg = "sg-0d650373748600386"
+bastion_host_role = {
+  rolearn  = "arn:aws:iam::257254804006:role/BastionRole"
+  username = "bastion-host"
+  groups   = ["system:master"]
+}
+pipeline_sg = "sg-05dc2e6ca161f7297"
 
 eks_cluster_name    = "edn-tech-k8s-cluster-1"
 eks_cluster_version = "1.27"
