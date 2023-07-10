@@ -13,7 +13,7 @@ module "eks" {
   tags                                  = var.default_tags
   cluster_enabled_log_types             = ["audit", "api", "authenticator", "scheduler", "controllerManager"]
   manage_aws_auth_configmap             = true
-  aws_auth_roles                        = [var.bastion_host_role_arn]
+  aws_auth_roles                        = [var.bastion_host_role]
   aws_auth_accounts                     = [data.aws_caller_identity.current.account_id]
 
   cluster_encryption_config = {
